@@ -30,7 +30,7 @@ class Crud extends Controller
         $student->class = $request->input('myclass');
        
         $student->save();
-        session::flash('message','Student information save successfully');
+        session::flash('message','Information save successfully');
          
          return redirect ('/');
        
@@ -51,12 +51,15 @@ class Crud extends Controller
        $student->class = $request->input('myclass',50);
        
        $student->save();
+       session::flash('message','Information successfully update');
        return redirect('/view');
           
    }    
     
    public function delete($id){
         Students::find($id)->delete();
+       
+        session::flash('message','Delete successfully');
         return redirect('/view');
    }
 }
